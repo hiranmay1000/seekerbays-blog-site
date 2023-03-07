@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
     AiFillInstagram,
     AiFillLinkedin,
@@ -16,10 +17,21 @@ function Home() {
             {/*  landing page */}
             <div className="home" id="home">
                 <main>
-                    <h1>SEEKERBAYS</h1>
-                    <p>
+                    <motion.h1
+                        initial={{
+                            x: "100%",
+                            opacity: 0,
+                        }}
+                        whileInView={{
+                            x: "0%",
+                            opacity: 1,
+                        }}
+                    >
+                        SEEKERBAYS
+                    </motion.h1>
+                    <motion.p>
                         This is a <span>blog</span> website
-                    </p>
+                    </motion.p>
                 </main>
             </div>
             {/*  page 2 */}
@@ -61,7 +73,8 @@ function Home() {
                 />
             </div>
             {/* about page */}
-            <div className="about-page" id="about">
+            <div id="about"></div>
+            <div className="about-page">
                 <div>
                     <h1>Who we are?</h1>
                     <br />
@@ -79,7 +92,8 @@ function Home() {
                     </p>
                 </div>
             </div>
-            <div className="social-media" id="contact">
+            <div id="contact"></div>
+            <div className="social-media">
                 <div>
                     <h1>Find me</h1>
                     <article>

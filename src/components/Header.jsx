@@ -1,44 +1,72 @@
 import React, { useState } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiFillCloseSquare, AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link/dist/react-router-hash-link.cjs.production";
 
 function Header() {
+    const menuIcon = <AiOutlineMenu />;
+
     const [menuOpen, setMenuOpen] = useState(false);
-    console.log(menuOpen);
+    const [bar, setBarToCross] = useState(menuIcon);
 
     const toggleMenu = () => {
-        if (menuOpen == false) {
+        if (!menuOpen) {
+            document.getElementById("nav-menu-slide").style.transform =
+                "translateY(0%)";
+
             setMenuOpen(true);
+            setBarToCross(<AiFillCloseSquare />);
         } else {
+            document.getElementById("nav-menu-slide").style.transform =
+                "translateY(-100%)";
+
             setMenuOpen(false);
+            setBarToCross(menuIcon);
         }
     };
 
+    const closeMenu = () => {
+        setMenuOpen(false);
+        toggleMenu();
+    };
+
     return (
-        <div className="navbar">
-            <nav>
-                <NavContent />
-                <button onClick={toggleMenu}>
-                    <AiOutlineMenu />
-                </button>
-            </nav>
-        </div>
+        <>
+            <div id="nav-menu-slide">
+                <NavContent menuSlideUP={closeMenu} />
+            </div>
+            <div className="navbar">
+                <nav>
+                    <NavContent />
+                    <button onClick={toggleMenu}>{bar}</button>
+                </nav>
+            </div>
+        </>
     );
 }
 
-const NavContent = () => (
+const NavContent = (props) => (
     <>
-        <h2>
+        <h2 id="heroLogo">
             Seeker<span style={{ color: "crimson" }}>Bays</span>
         </h2>
 
         <main>
-            <HashLink to="/#home">Home</HashLink>
-            <HashLink to="/#about">About</HashLink>
-            <HashLink to="/#contact">contact</HashLink>
-            <Link to="/">Resume</Link>
-            <Link to="/contents">Contents</Link>
+            <HashLink onClick={props.menuSlideUP} to="/#home">
+                Home
+            </HashLink>
+            <HashLink onClick={props.menuSlideUP} to="/#about">
+                About
+            </HashLink>
+            <HashLink onClick={props.menuSlideUP} to="/#contact">
+                contact
+            </HashLink>
+            <Link onClick={props.menuSlideUP} to="/">
+                Resume
+            </Link>
+            <Link onClick={props.menuSlideUP} to="/contents">
+                Contents
+            </Link>
         </main>
     </>
 );
