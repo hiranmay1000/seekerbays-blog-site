@@ -1,0 +1,137 @@
+@import "./colors.scss";
+
+.footer {
+    margin-top: 150px;
+    background-image: linear-gradient(to right, $c1, $c2);
+    border-radius: $heroRad 0px 0 0;
+    color: $white;
+
+    > main {
+        width: 90%;
+        margin: 0 auto;
+        padding: 150px 0;
+        display: flex;
+        justify-content: space-between;
+
+        > div {
+            width: 27%;
+        }
+
+        .content-left {
+            // background: red;
+        }
+
+        .content-mid {
+            text-align: center;
+            // background: green;
+
+            > div {
+                margin-top: 25px;
+                padding-top: 25px;
+                display: flex;
+                flex-direction: column;
+                border-top: 1px solid $lightPurple;
+
+                > a {
+                    color: $lightPurple;
+                    padding: 5px;
+                    width: 30%;
+                    margin: auto;
+
+                    &:hover {
+                        color: $crimson;
+                    }
+                }
+            }
+        }
+
+        .content-right {
+            // background: rgb(56, 56, 56);
+            border-bottom: 1px solid $lightPurple;
+
+            .social-media-footer {
+                padding-top: 25px;
+
+                > a {
+                    padding: 0 3px;
+                    color: $lightPurple;
+                    font-size: 2rem;
+
+                    &:hover {
+                        color: $crimson;
+                    }
+                }
+            }
+
+            > input {
+                width: 60%;
+                background: none;
+                border: none;
+                color: $white;
+                border-bottom: 1px solid $lightPurple;
+                padding: 0px 20px 5px;
+                outline: none;
+            }
+
+            > button {
+                background: none;
+                color: $white;
+                border: none;
+                cursor: pointer;
+                position: absolute;
+                margin-left: -18px;
+                transition: 0.3s;
+
+                svg {
+                    font-size: 18px;
+
+                    &:hover {
+                        font-size: 20px;
+                    }
+                }
+
+                &:hover {
+                    color: $crimson;
+                }
+            }
+
+            > p {
+                padding: 5px 0px;
+            }
+        }
+    }
+
+    .footer-line {
+        width: 80%;
+        height: 30px;
+        margin: 0 auto;
+
+        > hr {
+            position: relative;
+            opacity: 0.3;
+            border: 1px solid $lightPurple;
+        }
+
+        .marquee-container {
+            height: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-text {
+            opacity: 0.5;
+            width: 100%;
+            position: absolute;
+            animation: marquee 25s linear infinite;
+        }
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

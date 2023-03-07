@@ -1,0 +1,173 @@
+@import "./colors.scss";
+
+.home {
+    width: 100%;
+    height: 100vh;
+    background-color: $second;
+    color: #fff;
+    border-radius: 0 0 $heroRad 0px;
+
+    > main {
+        position: absolute;
+        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        justify-content: center;
+
+        > h1 {
+            font-size: 46px;
+        }
+
+        > p {
+            color: grey;
+            background: #000000;
+            padding: 0 5px;
+
+            > span {
+                color: crimson;
+            }
+        }
+    }
+
+    &::before {
+        content: "";
+        width: 100%;
+        position: absolute;
+        height: 100%;
+        background: no-repeat center/auto
+            url("../assets/black-leaf.jpg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 0 0 $heroRad 0px;
+    }
+}
+
+.page2,
+.page3 {
+    width: 100%;
+    padding:150px 150px 0 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    > img {
+        width: 35%;
+        animation: imgUp 0.7s linear infinite alternate;
+    }
+    
+    > div {
+        width: 50%;
+        
+        
+        > p {
+            letter-spacing: 2px;
+            word-spacing: 5px;
+            font-family: cursive;
+        }
+        
+        > h2 {
+            padding-bottom: 3px;
+            width: fit-content;
+            border-bottom: 1px solid grey;
+        }
+    }
+}
+
+@keyframes imgUp {
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+.about-page {
+    width: 70%;
+    min-height: 65vh;
+    margin-top: 250px;
+    padding: 100px 0;
+    color: $white;
+    background: $second;
+    border-radius: 0 $childRad $childRad 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    > div {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+
+        > h1 {
+            width: fit-content;
+            border-bottom: 2px solid grey;
+        }
+    }
+}
+
+.social-media {
+    margin-top: 250px;
+    color: $white;
+    display: flex;
+    justify-content: flex-end;
+
+    > div {
+        width: 70%;
+        min-height: 65vh;
+        border-radius:$childRad 0 0$childRad;
+        background: $second;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        > h1 {
+            position: relative;
+            text-align: center;
+            top: -30px;
+        }
+
+        > article {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            animation: imgUp 0.7s linear infinite alternate;
+
+            > a {
+                height: 9rem;
+                width: 9rem;
+                background: $white;
+                border-radius: 50%;
+                margin: 10px;
+                color: $second;
+                transition: all 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                &:hover {
+                    color: $crimson;
+                    background-color: $second;
+                }
+
+                svg {
+                    font-size: 3rem;
+                }
+
+                p {
+                    font-size: 12px;
+                }
+
+                p::hover {
+                    color: green;
+                }
+            }
+        }
+    }
+}
