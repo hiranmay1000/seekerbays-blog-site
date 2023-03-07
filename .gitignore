@@ -23,3 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 .vercel
+
+
+# Remove-Item -Path ".git" -Recurse -Force (for removing directory)
+
