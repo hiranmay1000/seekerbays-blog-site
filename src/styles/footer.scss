@@ -46,9 +46,6 @@
         }
 
         .content-right {
-            // background: rgb(56, 56, 56);
-            border-bottom: 1px solid $lightPurple;
-
             .social-media-footer {
                 padding-top: 25px;
 
@@ -97,6 +94,8 @@
 
             > p {
                 padding: 5px 0px;
+                border-bottom: 1px solid $lightPurple;
+                width: fit-content;
             }
         }
     }
@@ -133,5 +132,30 @@
     }
     100% {
         transform: translateX(-100%);
+    }
+}
+
+// Tablet
+@media screen and (max-width: 1000px) {
+    .footer {
+        > main {
+            > div {
+                margin: auto;
+                width: 90%;
+                padding: 100px 0;
+            }
+
+            .content-left {
+                border-bottom: 1px solid $lightPurple;
+            }
+
+            .content-mid {
+                border-bottom: 1px solid $lightPurple;
+
+                >div{
+                    border:none;
+                }
+            }
+        }
     }
 }

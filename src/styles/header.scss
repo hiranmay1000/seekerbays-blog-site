@@ -17,7 +17,7 @@ nav{
         width: 50%;
         display: flex;
         justify-content: flex-end;
-        
+
         >a {
             color: $lightPurple;
             padding: 32px 1rem;
@@ -28,4 +28,35 @@ nav{
             }
         }
     }
+
+    > button {
+        width: 50px;
+        height: 50px;
+        border:none;
+        color: $lightPurple;
+        font-size: 1.2rem;
+        background: none;
+        cursor: pointer;
+        display: none;
+
+        &:hover{
+            color:$crimson;
+        }
+
+    }
+}
+
+@media screen and (max-width: 700px){
+    nav{
+        > main {
+            display: none;
+        }
+
+        > button{
+            display: inline;
+        }
+    }
+
+
+    
 }
