@@ -12,11 +12,20 @@ import girlChatting from "../assets/girl-chatting-with-friends.png";
 import marketingMan from "../assets/marketing-employee-man.png";
 
 function Home() {
+    var cursorMove = document.querySelector(".follower");
+
+    document.addEventListener("mousemove", function (e) {
+        cursorMove.style.left = e.clientX + "px";
+        cursorMove.style.top = e.clientY + "px";
+    });
     return (
         <>
             {/*  landing page */}
             <div className="home" id="home">
                 <main>
+                    <div id="cursor-container">
+                        <div className="follower"></div>
+                    </div>
                     <motion.h1
                         initial={{
                             x: "-100%",
