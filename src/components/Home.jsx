@@ -12,11 +12,11 @@ import girlChatting from "../assets/girl-chatting-with-friends.png";
 import marketingMan from "../assets/marketing-employee-man.png";
 
 function Home() {
-    var cursorMove = document.querySelector(".follower");
+    var cursor = document.getElementById("cursor-container");
 
     document.addEventListener("mousemove", function (e) {
-        cursorMove.style.left = e.clientX + "px";
-        cursorMove.style.top = e.clientY + "px";
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
     });
     return (
         <>
