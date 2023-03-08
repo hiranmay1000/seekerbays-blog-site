@@ -33,7 +33,7 @@ function Header() {
     return (
         <>
             <div id="nav-menu-slide">
-                <NavContent menuSlideUP={closeMenu} />
+                <NavContent menuHide={closeMenu} />
             </div>
             <div className="navbar">
                 <nav>
@@ -47,24 +47,24 @@ function Header() {
 
 const NavContent = (props) => (
     <>
-        <h2 id="heroLogo">
+        <h2>
             Seeker<span style={{ color: "crimson" }}>Bays</span>
         </h2>
 
         <main>
-            <HashLink onClick={props.menuSlideUP} to="/#home">
+            <HashLink onClick={props.menuHide} to="/#home">
                 Home
             </HashLink>
-            <HashLink onClick={props.menuSlideUP} to="/#about">
+            <HashLink onClick={props.menuHide} to="/#about">
                 About
             </HashLink>
-            <HashLink onClick={props.menuSlideUP} to="/#contact">
+            <HashLink onClick={props.menuHide} to="/#contact">
                 contact
             </HashLink>
-            <Link onClick={props.menuSlideUP} to="/">
+            <Link onClick={props.menuHide} to="/">
                 Resume
             </Link>
-            <Link onClick={props.menuSlideUP} to="/contents">
+            <Link onClick={props.menuHide} to="/contents">
                 Contents
             </Link>
         </main>

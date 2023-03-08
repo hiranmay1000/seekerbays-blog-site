@@ -3,7 +3,7 @@
 .footer {
     margin-top: 150px;
     background-image: linear-gradient(to right, $c1, $c2);
-    border-radius: $heroRad 0px 0 0;
+    border-radius: 0 $heroRad 0 0;
     color: $white;
 
     > main {
@@ -15,6 +15,16 @@
 
         > div {
             width: 27%;
+
+            > p {
+                > a {
+                    color: $lightPurple;
+
+                    &:hover {
+                        color: $crimson;
+                    }
+                }
+            }
         }
 
         .content-left {
@@ -46,6 +56,45 @@
         }
 
         .content-right {
+            > button {
+                background: none;
+                color: $white;
+                border: none;
+                cursor: pointer;
+                transition: 0.3s;
+
+                > input {
+                    background: none;
+                    border: none;
+                    color: $white;
+                    border-bottom: 1px solid $lightPurple;
+                    padding: 0px 28px 5px;
+                    outline: none;
+                }
+
+                #arrowRight {
+                    cursor: pointer;
+                    position: absolute;
+                    color: $lightPurple;
+                    margin-left: -15px;
+
+                    &:hover {
+                        color: $crimson;
+                    }
+                }
+
+                svg {
+                    cursor: default;
+                    margin-bottom: -12px;
+                    font-size: 18px;
+                }
+            }
+
+            > h6 {
+                padding: 5px 0;
+                color: lightgreen;
+            }
+
             .social-media-footer {
                 padding-top: 25px;
 
@@ -57,38 +106,6 @@
                     &:hover {
                         color: $crimson;
                     }
-                }
-            }
-
-            > input {
-                width: 60%;
-                background: none;
-                border: none;
-                color: $white;
-                border-bottom: 1px solid $lightPurple;
-                padding: 0px 20px 5px;
-                outline: none;
-            }
-
-            > button {
-                background: none;
-                color: $white;
-                border: none;
-                cursor: pointer;
-                position: absolute;
-                margin-left: -18px;
-                transition: 0.3s;
-
-                svg {
-                    font-size: 18px;
-
-                    &:hover {
-                        font-size: 20px;
-                    }
-                }
-
-                &:hover {
-                    color: $crimson;
                 }
             }
 
@@ -155,6 +172,12 @@
                 > div {
                     border: none;
                 }
+            }
+
+            .content-right {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
             }
         }
     }

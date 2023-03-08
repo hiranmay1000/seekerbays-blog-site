@@ -19,11 +19,11 @@ function Home() {
                 <main>
                     <motion.h1
                         initial={{
-                            x: "100%",
+                            x: "-100%",
                             opacity: 0,
                         }}
                         whileInView={{
-                            x: "0%",
+                            x: "-5%",
                             opacity: 1,
                         }}
                     >
