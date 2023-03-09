@@ -94,22 +94,34 @@ function Footer() {
                     <h6>{feedback}</h6>
 
                     <div className="social-media-footer">
-                        <Link>
+                        <Link
+                            to={"https://linkedin.com/in/hiranmay1000"}
+                            target="_blank"
+                        >
                             <AiFillLinkedin />
                         </Link>
-                        <Link>
+                        <Link
+                            to={"https://instagram.com/hiranmay1000"}
+                            target="_blank"
+                        >
                             <AiFillInstagram />
                         </Link>
-                        <Link>
+                        <Link
+                            to={"https://instagram.com/hiranmay1000"}
+                            target="_blank"
+                        >
                             <AiFillTwitterCircle />
                         </Link>
-                        <Link>
+                        <Link to={""} target="_blank">
                             <AiFillFacebook />
                         </Link>
-                        <Link>
+                        <Link
+                            to={"mailto:hiranmay1000@gmail.com"}
+                            target="_blank"
+                        >
                             <AiFillMail />
                         </Link>
-                        <Link>
+                        <Link to={"phoneto:9064999233"} target="_blank">
                             <AiFillPhone />
                         </Link>
                     </div>

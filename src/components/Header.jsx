@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiFillCloseSquare, AiOutlineMenu } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link/dist/react-router-hash-link.cjs.production";
+import { HashLink } from "react-router-hash-link";
 
 function Header() {
     const menuIcon = <AiOutlineMenu />;

@@ -1,16 +1,20 @@
 @import "./colors.scss";
 
+
+.navbar{
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+}
+
 nav {
     width: 100%;
     height: 80px;
     padding: 0 2rem;
+    background-image: linear-gradient(to right, $c1, $c2);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    top: 0%;
-    z-index: 10;
-    position: fixed;
-    background-image: linear-gradient(to right, $c1, $c2);
     color: $white;
 
     > main {
@@ -43,16 +47,16 @@ nav {
     }
 }
 
+#nav-menu-slide{
+    display: none;
+}
+
 // Tablet and mobile compatible
 @media screen and (max-width: 700px) {
     nav {
         > main {
             display: none;
         }
-
-        // h2 {
-        //     margin: auto;   
-        // }
 
         > button {
             position: absolute;
@@ -75,7 +79,7 @@ nav {
         background-image: linear-gradient(to right, $c1, $c2);
         transform: translateY(-200%);
         transition: 0.4s ease-in-out;
-        z-index: 1;
+        z-index: 10;
         position: fixed;
         display: flex;
         align-items: center;

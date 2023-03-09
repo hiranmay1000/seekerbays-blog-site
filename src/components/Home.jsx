@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -6,26 +6,27 @@ import {
     AiFillLinkedin,
     AiFillGithub,
     AiFillMail,
+    AiFillTwitterCircle,
 } from "react-icons/ai";
 
 import girlChatting from "../assets/girl-chatting-with-friends.png";
 import marketingMan from "../assets/marketing-employee-man.png";
 
 function Home() {
-    var cursor = document.getElementById("cursor-container");
+    useEffect(() => {
+        var cursorMove = document.getElementById("follower");
 
-    document.addEventListener("mousemove", function (e) {
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-    });
+        document.addEventListener("mousemove", function (e) {
+            cursorMove.style.left = e.clientX + "px";
+            cursorMove.style.top = e.clientY + "px";
+        });
+    }, []);
     return (
         <>
             {/*  landing page */}
             <div className="home" id="home">
                 <main>
-                    <div id="cursor-container">
-                        <div className="follower"></div>
-                    </div>
+                    <div id="follower"></div>
                     <motion.h1
                         initial={{
                             x: "-100%",
@@ -107,7 +108,8 @@ function Home() {
                     <h1>Find me</h1>
                     <article>
                         <Link
-                            to="https://linkedin.com/in/hiranmay1000"
+                            to={"https://linkedin.com/in/hiranmay1000"}
+                            target="_black"
                             style={{
                                 animationDelay: "0.3s",
                             }}
@@ -116,6 +118,8 @@ function Home() {
                             <p>LinkedIn</p>
                         </Link>
                         <Link
+                            to={"https://www.instagram.com/hiranmay1000/"}
+                            target="_black"
                             style={{
                                 animationDelay: "0.5s",
                             }}
@@ -125,7 +129,19 @@ function Home() {
                         </Link>
 
                         <Link
-                            to="https://github.com/hiranmay1000"
+                            to={"https://twitter.com/HiranmayMandal5"}
+                            target="_black"
+                            style={{
+                                animationDelay: "0.9s",
+                            }}
+                        >
+                            <AiFillTwitterCircle />
+                            <p>Twitter</p>
+                        </Link>
+
+                        <Link
+                            to={"https://github.com/hiranmay1000"}
+                            target="_black"
                             style={{
                                 animationDelay: "0.7s",
                             }}
@@ -134,6 +150,8 @@ function Home() {
                             <p>Github</p>
                         </Link>
                         <Link
+                            to={"mailto:hiranmay1000@gmail.com"}
+                            target="_black"
                             style={{
                                 animationDelay: "0.9s",
                             }}
