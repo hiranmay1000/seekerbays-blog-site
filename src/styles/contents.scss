@@ -1,13 +1,29 @@
 @import "./colors.scss";
 
-div{
-    >main{
-        > .wrapper{
-            width: 100%;
-            height: 100vh;
-            background-color: grey;
-            width: 80%;
-            margin:auto;
+div {
+    > .main-content {
+        width: 70%;
+        margin: 50px auto;
+        background-color: $lightBlue;
+        border-radius: $childRad;
+        padding: 150px 100px;
+
+        > .blog-tags {
+            width: 90%;
+            margin: 50px auto;
+            background-color: rgb(97, 86, 86);
+
+            > .tags {
+                margin: 0 5px;
+                padding: 6px 12px;
+                border-radius: 15px;
+                color: $lightBlue;
+                background-color: #9696c9;
+
+                &:hover {
+                    background-color: #8282ac;
+                }
+            }
         }
     }
 }

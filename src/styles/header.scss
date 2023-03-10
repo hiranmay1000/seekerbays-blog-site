@@ -1,9 +1,8 @@
 @import "./colors.scss";
 
-
-.navbar{
+.navbar {
     position: sticky;
-    top: 0px;
+    top: 0;
     z-index: 10;
 }
 
@@ -21,15 +20,21 @@ nav {
         width: 50%;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
 
         > a {
             color: $lightPurple;
-            padding: 32px 1rem;
+            padding: 30px 1rem;
             cursor: pointer;
 
             &:hover {
                 color: $crimson;
             }
+        }
+
+        #mode-icon{
+            padding: 30px;
+            font-size: 1.5rem;
         }
     }
 
@@ -47,7 +52,7 @@ nav {
     }
 }
 
-#nav-menu-slide{
+#nav-menu-slide {
     display: none;
 }
 
@@ -74,7 +79,7 @@ nav {
 
     #nav-menu-slide {
         width: 100%;
-        height: 100vh;
+        height: calc(120vh - 100px);
         position: absolute;
         background-image: linear-gradient(to right, $c1, $c2);
         transform: translateY(-200%);

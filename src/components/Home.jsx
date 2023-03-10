@@ -15,7 +15,6 @@ import marketingMan from "../assets/marketing-employee-man.png";
 function Home() {
     useEffect(() => {
         var cursorMove = document.getElementById("follower");
-
         document.addEventListener("mousemove", function (e) {
             cursorMove.style.left = e.clientX + "px";
             cursorMove.style.top = e.clientY + "px";
@@ -23,10 +22,12 @@ function Home() {
     }, []);
     return (
         <>
-            {/*  landing page */}
-            <div className="home" id="home">
+            {/*  Landing page */}
+            <div className="home" id="home-page">
                 <main>
-                    <div id="follower"></div>
+                    <div className="cursor-container">
+                        <div id="follower"></div>
+                    </div>
                     <motion.h1
                         initial={{
                             x: "-100%",
@@ -45,7 +46,7 @@ function Home() {
                 </main>
             </div>
             {/*  page 2 */}
-            <div className="page2">
+            <div className="page2 read-page">
                 <img src={marketingMan} alt="girl-chatting" />
                 <div>
                     <h2>Lorem ipsum dolor sit amet</h2>
@@ -62,7 +63,7 @@ function Home() {
                 </div>
             </div>
             {/*  page 3 */}
-            <div className="page3">
+            <div className="page3 read-page">
                 <div>
                     <h2>Lorem ipsum dolor sit amet</h2>
                     <br />
@@ -84,7 +85,7 @@ function Home() {
             </div>
             {/* about page */}
             <div id="about"></div>
-            <div className="about-page">
+            <div className="about-page info-page">
                 <div>
                     <h1>Who we are?</h1>
                     <br />
@@ -103,8 +104,8 @@ function Home() {
                 </div>
             </div>
             <div id="contact"></div>
-            <div className="social-media">
-                <div>
+            <div className="social-media ">
+                <div className="info-page">
                     <h1>Find me</h1>
                     <article>
                         <Link
