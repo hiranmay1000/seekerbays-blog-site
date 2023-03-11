@@ -5,11 +5,12 @@ div {
         display: flex;
         align-items: center;
         justify-content: center;
-
-        > .error-content {
+        
+        .error-content-light,
+        .error-content-dark {
             width: 70%;
             min-height: calc(85vh - 80px);
-            margin: 50px 0;
+            margin: 70px 0;
             padding: 0 60px;
             background: $lightBlue;
             border-radius: $childRad;
@@ -19,6 +20,7 @@ div {
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            transition: all 1s ease;
 
             a {
                 h2 {
@@ -49,7 +51,7 @@ div {
                 }
             }
 
-            .gear-icon-logo{
+            .gear-icon-logo {
                 height: 50px;
                 width: 50px;
                 background-image: url("../assets/setting.png");
@@ -58,13 +60,26 @@ div {
                 background-size: cover;
             }
         }
+
+        .error-content-dark {
+            background: $bgRead;
+            color: $white;
+            box-shadow: 0px 0px 200px $ledBacklit;
+
+            a {
+                h2{
+                    color: $white;
+                }
+            }
+        }
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
     div {
         > .error-page-wrapper {
-            > .error-content {
+            .error-content-light,
+            .error-content-dark {
                 width: 90%;
                 border-radius: 50px;
 

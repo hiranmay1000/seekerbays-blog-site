@@ -1,7 +1,7 @@
 @import "./colors.scss";
 
 $main-content-width: 70%;
-$main-content-margin: 50px auto;
+$main-content-margin: 70px auto;
 $main-content-padding: 150px 100px;
 $blog-tags-width: 90%;
 $blog-tags-margin: 50px auto;
@@ -33,6 +33,8 @@ div {
         margin: $main-content-margin;
         border-radius: $childRad;
         padding: $main-content-padding;
+        transition: all 1s ease;
+
 
         & > .blog-tags {
             .tag-container {
@@ -47,10 +49,13 @@ div {
     & > .main-content-light {
         background-color: $lightBlue;
         color: #111;
-    }
 
+    }
+    
     & > .main-content-dark {
-        background-color: #1a2240;
+        background-color: $bgRead;
         color: #fff;
+        box-shadow: 0px 0px 200px $ledBacklit;
+
     }
 }

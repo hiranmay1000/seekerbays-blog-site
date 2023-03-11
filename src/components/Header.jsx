@@ -30,7 +30,7 @@ function Header(header) {
     };
 
     window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 300) {
+        if (window.pageYOffset > 150) {
             setNewHeaderSize("-scrolled");
         } else {
             setNewHeaderSize("");
@@ -120,6 +120,9 @@ const NavContent = (props) => (
             </Link>
             <Link onClick={props.menuHide} to="/contents">
                 Contents
+            </Link>
+            <Link onClick={props.menuHide}>
+                Themes
             </Link>
             <Link id="mode-icon" onClick={props.toggleMode}>
                 {props.toggleIcon}

@@ -59,7 +59,7 @@ function App() {
       setDisplayModes("Dark")
       feedbackTimeout();
       setTheme("dark");
-      document.body.style.background = "#030718";
+      document.body.style.background = "#04091f";
 
 
       for (let i = 0; i < readPages.length; i++) {
@@ -76,7 +76,7 @@ function App() {
     <Router>
       <Header toggleMode={toggleMode} icon={icon} displayModes={displayModes} />
       <Routes>
-        <Route path="*" element={<Error404 />} />
+        <Route path="*" element={<Error404 theme={theme} />} />
         <Route path="/" element={<Home />} />
         <Route path="/contents" element={<Contents />} />
         <Route path="/firstblog" element={<Suspense fallback={<div>Loading...</div>}><FirstBlog theme={theme} /></Suspense>} />
