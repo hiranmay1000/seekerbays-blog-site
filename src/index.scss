@@ -1,5 +1,28 @@
 @import "./styles/colors.scss";
 
+*{
+    text-decoration: none !important;
+}
+
 body {
     // background-color: $darkBlue !important;
+}
+
+#alert-box-container{
+    display: none;
+    justify-content: center;
+}
+
+.alert-box{
+    top: 90px;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    line-height: 0px;
+    position: fixed;
+    border: none;
+    background-image: url(../src/assets/success-icon-ani.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 40px;
 }

@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function FirstBlog(firstBlog) {
+function ThirdBlog(thirdBlog) {
     return (
         <div>
-            <main className={`main-content-${firstBlog.theme}`}>
+            <main className={`main-content-${thirdBlog.theme}`}>
                 <div>
-                    <h1>Hello world</h1>
-                    <h2>This is earth</h2>
+                    <h1>Third blog</h1>
+                    <h2>welcome</h2>
                     <br />
 
                     <em>"Your quote goes here"</em>
@@ -69,4 +69,4 @@ function FirstBlog(firstBlog) {
     );
 }
 
-export default FirstBlog;
+export default ThirdBlog;

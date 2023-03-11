@@ -121,7 +121,7 @@ function Footer() {
                         >
                             <AiFillMail />
                         </Link>
-                        <Link to={"phoneto:9064999233"} target="_blank">
+                        <Link to={"tel:9064999233"} target="_blank">
                             <AiFillPhone />
                         </Link>
                     </div>

@@ -12,7 +12,7 @@ import {
 import girlChatting from "../assets/girl-chatting-with-friends.png";
 import marketingMan from "../assets/marketing-employee-man.png";
 
-function Home() {
+function Home(home) {
     useEffect(() => {
         var cursorMove = document.getElementById("follower");
         document.addEventListener("mousemove", function (e) {
@@ -22,6 +22,7 @@ function Home() {
     }, []);
     return (
         <>
+            
             {/*  Landing page */}
             <div className="home" id="home-page">
                 <main>

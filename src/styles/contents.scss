@@ -1,29 +1,56 @@
 @import "./colors.scss";
 
+$main-content-width: 70%;
+$main-content-margin: 50px auto;
+$main-content-padding: 150px 100px;
+$blog-tags-width: 90%;
+$blog-tags-margin: 50px auto;
+$tags-margin: 5px;
+$tags-padding: 6px 12px;
+$tags-border-radius: 15px;
+
+@mixin blog-tags {
+    width: $blog-tags-width;
+    margin: $blog-tags-margin;
+
+    .tags {
+        margin: $tags-margin;
+        padding: $tags-padding;
+        border-radius: $tags-border-radius;
+        color: $lightBlue;
+        background-color: #9696c9;
+
+        &:hover {
+            background-color: #8282ac;
+        }
+    }
+}
+
 div {
-    > .main-content {
-        width: 70%;
-        margin: 50px auto;
-        background-color: $lightBlue;
+    & > .main-content-light,
+    & > .main-content-dark {
+        width: $main-content-width;
+        margin: $main-content-margin;
         border-radius: $childRad;
-        padding: 150px 100px;
+        padding: $main-content-padding;
 
-        > .blog-tags {
-            width: 90%;
-            margin: 50px auto;
-            background-color: rgb(97, 86, 86);
-
-            > .tags {
-                margin: 0 5px;
-                padding: 6px 12px;
-                border-radius: 15px;
-                color: $lightBlue;
-                background-color: #9696c9;
-
-                &:hover {
-                    background-color: #8282ac;
-                }
+        & > .blog-tags {
+            .tag-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                @include blog-tags;
             }
         }
+    }
+
+    & > .main-content-light {
+        background-color: $lightBlue;
+        color: #111;
+    }
+
+    & > .main-content-dark {
+        background-color: #1a2240;
+        color: #fff;
     }
 }
