@@ -59,14 +59,14 @@ function App() {
       setDisplayModes("Dark")
       feedbackTimeout();
       setTheme("dark");
-      document.body.style.background = "#020f2c";
+      document.body.style.background = "#030718";
 
 
       for (let i = 0; i < readPages.length; i++) {
         readPages[i].style.background = "#1a2240";
         readPages[i].style.color = "lightgrey";
 
-        infoPages[i].style.background = "#040414";
+        infoPages[i].style.background = "#000000";
 
       }
     }

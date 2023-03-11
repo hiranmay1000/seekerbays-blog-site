@@ -49,7 +49,6 @@ function Header(header) {
                 <h2>
                     Seeker<span style={{ color: "crimson" }}>Bays</span>
                 </h2>
-
                 <main>
                     <HashLink onClick={menuHide} to="/#home">
                         Home
@@ -96,6 +95,14 @@ const NavContent = (props) => (
             <h2>
                 Seeker<span style={{ color: "crimson" }}>Bays</span>
             </h2>
+        </Link>
+        <Link
+            id="mode-icon-phone"
+            onClick={() => {
+                props.toggleMode();
+            }}
+        >
+            {props.toggleIcon}
         </Link>
 
         <main>

@@ -1,6 +1,6 @@
 @import "./styles/colors.scss";
 
-*{
+* {
     text-decoration: none !important;
 }
 
@@ -8,12 +8,24 @@ body {
     // background-color: $darkBlue !important;
 }
 
-#alert-box-container{
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #cfd3f8;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $darkBlue;
+}
+
+#alert-box-container {
     display: none;
     justify-content: center;
 }
 
-.alert-box{
+.alert-box {
     top: 90px;
     z-index: 9999;
     display: flex;

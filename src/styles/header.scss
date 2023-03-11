@@ -63,13 +63,18 @@
     & > .header {
         height: 80px;
         background-image: linear-gradient(to right, $c1, $c2);
-
     }
     & > .header-scrolled {
         height: 60px;
         background-image: linear-gradient(to right, #1a020ac4, #020b2ce3);
         box-shadow: 0px 0px 55px #1d1616;
+    }
 
+    #mode-icon-phone {
+        display: none;
+        margin-right: 20px;
+        padding: 20px;
+        color: $lightPurple;
     }
 }
 
@@ -78,7 +83,13 @@
 }
 
 // Tablet and mobile compatible
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
+    .navbar {
+        #mode-icon-phone {
+            display: flex;
+        }
+    }
+
     .header,
     .header-scrolled {
         & > main {

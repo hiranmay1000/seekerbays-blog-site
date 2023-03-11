@@ -31,8 +31,9 @@
             top: -20px;
             left: -20px;
             position: absolute;
-
+            
             > #follower {
+                // overflow: hidden;
                 position: relative;
                 height: 40px;
                 width: 40px;
@@ -188,6 +189,7 @@
 
                 p {
                     font-size: 12px;
+                    margin: 0;
                 }
 
                 p::hover {
