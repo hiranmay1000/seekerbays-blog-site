@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function ThirdBlog(thirdBlog) {
     return (
         <div>
-            <main className={`main-content-${thirdBlog.theme}`}>
+            <main className={`main-content-${thirdBlog.themeColor}`}>
                 <div>
                     <h1>Third blog</h1>
                     <h2>welcome</h2>

@@ -1,14 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { BsSunFill, BsMoonStarsFill } from "react-icons/bs";
-import React, { useState, Suspense } from "react";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Footer from "./components/Footer";
-import Contents from "./components/Contents";
-import Error404 from "./components/Error404";
-import FirstBlog from "./myblogs/FirstBlog"
-import SecondBlog from "./myblogs/SecondBlog"
-import ThirdBlog from "./myblogs/ThirdBlog"
+import React, { useState, Suspense, useEffect } from "react";
+import Header from "./components/Header.jsx";
+import Home from "./components/Home.jsx";
+import Footer from "./components/Footer.jsx";
+import Contents from "./components/Contents.jsx";
+import Error404 from "./components/Error404.jsx";
+import FirstBlog from "./myblogs/FirstBlog.jsx";
+import SecondBlog from "./myblogs/SecondBlog.jsx";
+import ThirdBlog from "./myblogs/ThirdBlog.jsx";
+import Resume from "./components/Resume.jsx";
 
 import './styles/App.scss';
 import './styles/header.scss';
@@ -23,65 +24,94 @@ function App() {
   const [icon, setIcon] = useState(<BsSunFill />);
   const [darkMode, setDarkMode] = useState(true);
   const [displayModes, setDisplayModes] = useState("Light");
-  const [theme, setTheme] = useState("light");
+  const [themeColor, setThemeColor] = useState("light");
 
   const feedbackTimeout = () => {
     setTimeout(() => {
       document.getElementById("alert-box-container").style.display = "none";
-    }, 2500);
+    }, 3000);
     document.getElementById("alert-box-container").style.display = "flex";
   }
 
-  const toggleMode = () => {
-    const readPages = document.getElementsByClassName("read-page");
-    const infoPages = document.getElementsByClassName("info-page");
+  const setLightTheme = () => {
+    setDarkMode(true);
+    setIcon(<BsSunFill />);
+    setDisplayModes("Light mode")
+    feedbackTimeout();
+    setThemeColor("light");
+    document.body.style.background = "#dcdaff";
+  }
 
-    if (!darkMode) {
-      setDarkMode(true);
-      setIcon(<BsSunFill />);
-      setDisplayModes("Light")
-      feedbackTimeout();
-      setTheme("light");
-      document.body.style.background = "#dcdaff";
-
-
-      for (let i = 0; i < readPages.length; i++) {
-        readPages[i].style.background = "#cecef7";
-        readPages[i].style.color = "#000000";
-
-        infoPages[i].style.background = "#020f2c";
-      }
+  // const setDarkTheme = () => {
+  //   setDarkMode(false);
+  //   setIcon(<BsMoonStarsFill />);
+  //   setDisplayModes("Dark mode")
+  //   feedbackTimeout();
+  //   setThemeColor("dark");
+  //   document.body.style.background = "#04091f";
+  // }
 
 
-    } else {
-      setDarkMode(false);
-      setIcon(<BsMoonStarsFill />);
-      setDisplayModes("Dark")
-      feedbackTimeout();
-      setTheme("dark");
-      document.body.style.background = "#04091f";
-
-
-      for (let i = 0; i < readPages.length; i++) {
-        readPages[i].style.background = "#1a2240";
-        readPages[i].style.color = "lightgrey";
-
-        infoPages[i].style.background = "#000000";
-
-      }
-    }
+  const setCherryBlue = () => {
+    setThemeColor("cherryBlue");
+    setDarkMode(false);
+    setIcon(<BsMoonStarsFill />);
+    setDisplayModes("Cherry Blue theme")
+    feedbackTimeout();
+    document.body.style.background = "#04091f";
   };
+
+  const setPineappleMint = () => {
+    setThemeColor("pineappleMint");
+    setDarkMode(false);
+    setIcon(<BsMoonStarsFill />);
+    setDisplayModes("Pineapple Mint theme")
+    feedbackTimeout();
+    document.body.style.background = "#def2e8";
+  };
+
+  const toggleMode = () => {
+    setDarkMode(!darkMode);
+    setDisplayModes(darkMode ? "Light mode" : "Dark mode");
+    feedbackTimeout();
+  };
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [darkMode]);
+
+  const handleThemeChange = (color) => {
+    switch (color) {
+      case 'def':
+        setLightTheme();
+        break;
+      case 'cherry':
+        setCherryBlue();
+        break;
+      case 'pine':
+        setPineappleMint();
+        break;
+
+      default:
+        break;
+    }
+  }
 
   return (
     <Router>
-      <Header toggleMode={toggleMode} icon={icon} displayModes={displayModes} />
+      <Header toggleMode={toggleMode} icon={icon} displayModes={displayModes} handleThemeChange={handleThemeChange} />
       <Routes>
-        <Route path="*" element={<Error404 theme={theme} />} />
+        <Route path="*" element={<Error404 themeColor={themeColor} />} />
         <Route path="/" element={<Home />} />
+        <Route path="/resume" element={<Resume themeColor={themeColor} />} />
         <Route path="/contents" element={<Contents />} />
-        <Route path="/firstblog" element={<Suspense fallback={<div>Loading...</div>}><FirstBlog theme={theme} /></Suspense>} />
-        <Route path="/secondblog" element={<SecondBlog theme={theme} />} />
-        <Route path="/thirdblog" element={<ThirdBlog theme={theme} />} />
+        <Route path="/firstblog" element={<Suspense fallback={<div>Loading...</div>}><FirstBlog themeColor={themeColor} /></Suspense>} />
+        <Route path="/secondblog" element={<SecondBlog themeColor={themeColor} />} />
+        <Route path="/thirdblog" element={<ThirdBlog themeColor={themeColor} />} />
       </Routes>
       <Footer />
     </Router>

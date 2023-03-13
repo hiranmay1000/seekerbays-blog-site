@@ -9,7 +9,7 @@ function Error404(error404) {
         <div>
             <main className={`error-page-wrapper`}>
                 <div
-                    className={`error-content-${error404.theme}`}
+                    className={`error-content-${error404.themeColor}`}
                 >
                     <Link to={"/"}>
                         <h2>

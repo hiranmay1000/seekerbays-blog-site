@@ -1,5 +1,15 @@
 @import "./colors.scss";
 
+@mixin themeBtn {
+    color: $lightPurple;
+    background-image: linear-gradient(to right, #5a0a0a, #17176e);
+    border: none;
+
+    &:hover {
+        background-image: linear-gradient(to right, #17176e, #5a0a0a);
+    }
+}
+
 .navbar {
     position: sticky;
     top: 0;
@@ -30,6 +40,10 @@
             justify-content: flex-end;
             align-items: center;
 
+            .active {
+                color: $crimson;
+            }
+
             > a {
                 color: $lightPurple;
                 padding: 28px 1rem;
@@ -37,6 +51,24 @@
 
                 &:hover {
                     color: $crimson;
+                }
+            }
+
+            .theme-btn {
+                @include themeBtn();
+            }
+
+            .dropdown-menu {
+                background-image: linear-gradient(
+                    to right,
+                    $lightBlue,
+                    $lightPurple
+                );
+                border-radius: 25px;
+                text-align: center;
+
+                &:hover {
+                    overflow: hidden;
                 }
             }
 
@@ -53,6 +85,7 @@
             background: none;
             cursor: pointer;
             display: none;
+            padding-left: 10px;
 
             &:hover {
                 color: $crimson;
@@ -65,14 +98,14 @@
         background-image: linear-gradient(to right, $c1, $c2);
     }
     & > .header-scrolled {
-        height: 60px;
+        height: 55px;
         background-image: linear-gradient(to right, #1a020ac4, #020b2ce3);
         box-shadow: 0px 0px 55px #1d1616;
     }
 
     #mode-icon-phone {
         display: none;
-        margin-right: 20px;
+        margin-right: 25px;
         padding: 20px;
         color: $lightPurple;
     }
@@ -83,7 +116,7 @@
 }
 
 // Tablet and mobile compatible
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 850px) {
     .navbar {
         #mode-icon-phone {
             display: flex;
@@ -123,7 +156,13 @@
         align-items: center;
         justify-content: center;
 
-        > h2 {
+        a {
+            h2 {
+                display: none;
+            }
+        }
+        
+        #mode-icon-phone {
             display: none;
         }
 
@@ -133,6 +172,10 @@
             flex-direction: column;
             text-align: center;
             width: 80%;
+
+            .theme-btn {
+                @include themeBtn();
+            }
 
             > a {
                 color: $lightPurple;

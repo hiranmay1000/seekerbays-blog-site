@@ -26,6 +26,35 @@ $tags-border-radius: 15px;
     }
 }
 
+.canva-light,
+.canva-dark {
+    position: relative;
+    width: 40%;
+    margin: auto;
+    padding-top: 56.25%;
+    padding-bottom: 0;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    border-radius: 25px;
+    will-change: transform;
+
+    .iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.canva-dark {
+    box-shadow: 0px 0px 50px blue;
+}
+
 div {
     & > .main-content-light,
     & > .main-content-dark {
@@ -34,7 +63,6 @@ div {
         border-radius: $childRad;
         padding: $main-content-padding;
         transition: all 1s ease;
-
 
         & > .blog-tags {
             .tag-container {
@@ -49,13 +77,36 @@ div {
     & > .main-content-light {
         background-color: $lightBlue;
         color: #111;
-
     }
-    
+
     & > .main-content-dark {
         background-color: $bgRead;
         color: #fff;
         box-shadow: 0px 0px 200px $ledBacklit;
+    }
+}
 
+@media screen and (max-width: 750px) {
+    div {
+        .main-content-light,
+        .main-content-dark {
+            width: 90%;
+            margin: $main-content-margin;
+            border-radius: $childRadMob;
+            padding: 50px 25px;
+            transition: all 1s ease;
+
+            .blog-tags {
+                .tag-container {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .canva-light,
+    .canva-dark {
+        width: 90%;
+        height: 600px;
     }
 }

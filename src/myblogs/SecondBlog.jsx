@@ -4,7 +4,7 @@ import '../styles/contents.scss';
 function SecondBlog(secondBlog) {
     return (
         <div>
-            <main className={`main-content-${secondBlog.theme}`}>
+            <main className={`main-content-${secondBlog.themeColor}`}>
                 <div className="content-wrapper">
                     <h1>This is second Blog</h1>
                     <h2>Welcome to second blog</h2>

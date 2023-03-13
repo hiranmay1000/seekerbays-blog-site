@@ -4,12 +4,6 @@
     text-decoration: none !important;
 }
 
-body {
-    // background-color: $darkBlue !important;
-    transition: all 1s ease;
-
-}
-
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -40,3 +34,24 @@ body {
     background-size: contain;
     padding-left: 40px;
 }
+
+:root {
+    --backgroud-light: $bgColor;
+    --backgroud-dark: $darkBlue;
+    --read-page-bg-light: $lightBlue;
+    --read-page-color-light: lightgrey;
+    --read-page-bg-dark: darkblue;
+    --read-page-color-dark: #000000;
+    --info-page-background-light: #020f2c;
+    --info-page-background-dark: #000000;
+}
+
+body {
+    background: var(--backgroud-light);
+    transition: all 1s ease;
+}
+
+.read-page{
+    background: red;
+}
+

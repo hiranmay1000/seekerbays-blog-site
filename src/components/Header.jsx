@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { AiFillCloseSquare, AiOutlineMenu } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 function Header(header) {
     const [showMenu, setShowMenu] = useState(false);
     const [barIcon, setBarToCross] = useState(<AiOutlineMenu />);
-    const [headerSize, setNewHeaderSize] = useState("");
+    const [headerOnScroll, setHeaderOnScroll] = useState("");
+    const [activePage, setActivePage] = useState("/");
 
     const toggleMenuMobile = () => {
         if (!showMenu) {
@@ -29,58 +30,46 @@ function Header(header) {
         toggleMenuMobile();
     };
 
-    window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 150) {
-            setNewHeaderSize("-scrolled");
-        } else {
-            setNewHeaderSize("");
-        }
+    useLayoutEffect(() => {
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 150) {
+                setHeaderOnScroll("-scrolled");
+            } else {
+                setHeaderOnScroll("");
+            }
+        });
     });
+
+    const location = useLocation();
+    useEffect(() => {
+        const path = location.pathname.substring(1);
+        setActivePage(path || "/");
+    }, [location.pathname]);
 
     return (
         <>
             <div id={`alert-box-container`}>
                 <div className="alert alert-light alert-box" role="alert">
-                    {header.displayModes} mode enabled
+                    {header.displayModes} applied
                 </div>
             </div>
             <div id="home"></div>
             <div id="nav-menu-slide">
-                <h2>
-                    Seeker<span style={{ color: "crimson" }}>Bays</span>
-                </h2>
-                <main>
-                    <HashLink onClick={menuHide} to="/#home">
-                        Home
-                    </HashLink>
-                    <HashLink onClick={menuHide} to="/#about">
-                        About
-                    </HashLink>
-                    <HashLink onClick={menuHide} to="/#contact">
-                        contact
-                    </HashLink>
-                    <Link onClick={menuHide} to="/">
-                        Resume
-                    </Link>
-                    <Link onClick={menuHide} to="/contents">
-                        Contents
-                    </Link>
-                    <Link
-                        id="mode-icon"
-                        onClick={() => {
-                            header.toggleMode();
-                            menuHide();
-                        }}
-                    >
-                        {header.icon}
-                    </Link>
-                </main>
+                <NavContent
+                    toggleMode={header.toggleMode}
+                    toggleIcon={header.icon}
+                    activePage={activePage}
+                    menuHide={menuHide}
+                    theme={header.handleThemeChange}
+                    />
             </div>
             <div className="navbar">
-                <nav className={`header${headerSize}`}>
+                <nav className={`header${headerOnScroll}`}>
                     <NavContent
                         toggleMode={header.toggleMode}
                         toggleIcon={header.icon}
+                        activePage={activePage}
+                        theme={header.handleThemeChange}
                     />
                     <button onClick={toggleMenuMobile}>{barIcon}</button>
                 </nav>
@@ -89,46 +78,94 @@ function Header(header) {
     );
 }
 
-const NavContent = (props) => (
-    <>
-        <Link to="/#home">
-            <h2>
-                Seeker<span style={{ color: "crimson" }}>Bays</span>
-            </h2>
-        </Link>
-        <Link
-            id="mode-icon-phone"
-            onClick={() => {
-                props.toggleMode();
-            }}
-        >
-            {props.toggleIcon}
-        </Link>
+const NavContent = (nc) => {
+    return (
+        <>
+            <Link to="/#home">
+                <h2>
+                    Seeker<span style={{ color: "crimson" }}>Bays</span>
+                </h2>
+            </Link>
+            <Link
+                id="mode-icon-phone"
+                onClick={() => {
+                    nc.toggleMode();
+                }}
+            >
+                {nc.toggleIcon}
+            </Link>
 
-        <main>
-            <HashLink onClick={props.menuHide} to="/#home">
-                Home
-            </HashLink>
-            <HashLink onClick={props.menuHide} to="/#about">
-                About
-            </HashLink>
-            <HashLink onClick={props.menuHide} to="/#contact">
-                contact
-            </HashLink>
-            <Link onClick={props.menuHide} to="/">
-                Resume
-            </Link>
-            <Link onClick={props.menuHide} to="/contents">
-                Contents
-            </Link>
-            <Link onClick={props.menuHide}>
+            <main>
+                <HashLink
+                    className={nc.activePage === "/" ? "active" : ""}
+                    onClick={nc.menuHide}
+                    to="/#home"
+                >
+                    Home
+                </HashLink>
+                <HashLink
+                    className={nc.activePage === "#about" ? "active" : ""}
+                    onClick={nc.menuHide}
+                    to="/#about"
+                >
+                    About
+                </HashLink>
+                <HashLink onClick={nc.menuHide} to="/#contact">
+                    contact
+                </HashLink>
+                <Link
+                    className={nc.activePage === "resume" ? "active" : ""}
+                    onClick={nc.menuHide}
+                    to="/resume"
+                >
+                    Resume
+                </Link>
+                <Link
+                    className={nc.activePage === "contents" ? "active" : ""}
+                    onClick={nc.menuHide}
+                    to="/contents"
+                >
+                    Contents
+                </Link>
+                <DropdownMenu theme={nc.theme} menuHide={nc.menuHide}/>
+                <Link id="mode-icon" onClick={nc.toggleMode}>
+                    {nc.toggleIcon}
+                </Link>
+            </main>
+        </>
+    );
+};
+
+const DropdownMenu = (dd) => {
+    return (
+        <Link className="dropdown-center btn-group">
+            <button
+                className="btn btn-secondary dropdown-toggle theme-btn"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+            >
                 Themes
-            </Link>
-            <Link id="mode-icon" onClick={props.toggleMode}>
-                {props.toggleIcon}
-            </Link>
-        </main>
-    </>
-);
+            </button>
+            <ul className="dropdown-menu dropdown-menu-end" onClick={dd.menuHide}>
+                <li>
+                    <Link onClick={() => dd.theme("def")} className="dropdown-item" href="/">
+                        Default
+                    </Link>
+                </li>
+                <li>
+                    <Link onClick={() => dd.theme("cherry")} className="dropdown-item" href="/">
+                        Cherry Blue
+                    </Link>
+                </li>
+                <li>
+                    <Link onClick={() => dd.theme("pine")} className="dropdown-item" href="/">
+                        Pineapple Mint
+                    </Link>
+                </li>
+            </ul>
+        </Link>
+    );
+};
 
 export default Header;
