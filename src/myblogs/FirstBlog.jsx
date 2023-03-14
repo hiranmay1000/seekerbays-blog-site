@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function FirstBlog(firstBlog) {
     return (
         <div>
-            <main className={`main-content-${firstBlog.themeColor}`}>
+            <main className={`main-content`}>
                 <div>
                     <h1>Hello world</h1>
                     <h2>This is earth</h2>

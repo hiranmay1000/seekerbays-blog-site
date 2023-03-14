@@ -8,6 +8,7 @@ function Header(header) {
     const [barIcon, setBarToCross] = useState(<AiOutlineMenu />);
     const [headerOnScroll, setHeaderOnScroll] = useState("");
     const [activePage, setActivePage] = useState("/");
+    const [errorPopupClass, setErrorPopupClass] = useState("");
 
     const toggleMenuMobile = () => {
         if (!showMenu) {
@@ -40,6 +41,14 @@ function Header(header) {
         });
     });
 
+    useState(() => {
+        if (header.errorPopup === true) {
+            setErrorPopupClass("");
+        } else {
+            setErrorPopupClass("error-");
+        }
+    });
+
     const location = useLocation();
     useEffect(() => {
         const path = location.pathname.substring(1);
@@ -49,8 +58,11 @@ function Header(header) {
     return (
         <>
             <div id={`alert-box-container`}>
-                <div className="alert alert-light alert-box" role="alert">
-                    {header.displayModes} applied
+                <div
+                    className={`alert alert-light ${errorPopupClass}alert-box`}
+                    role="alert"
+                >
+                    {header.displayModesFeedback}
                 </div>
             </div>
             <div id="home"></div>
@@ -61,7 +73,7 @@ function Header(header) {
                     activePage={activePage}
                     menuHide={menuHide}
                     theme={header.handleThemeChange}
-                    />
+                />
             </div>
             <div className="navbar">
                 <nav className={`header${headerOnScroll}`}>
@@ -127,7 +139,7 @@ const NavContent = (nc) => {
                 >
                     Contents
                 </Link>
-                <DropdownMenu theme={nc.theme} menuHide={nc.menuHide}/>
+                <DropdownMenu theme={nc.theme} menuHide={nc.menuHide} />
                 <Link id="mode-icon" onClick={nc.toggleMode}>
                     {nc.toggleIcon}
                 </Link>
@@ -147,19 +159,34 @@ const DropdownMenu = (dd) => {
             >
                 Themes
             </button>
-            <ul className="dropdown-menu dropdown-menu-end" onClick={dd.menuHide}>
+            <ul
+                className="dropdown-menu dropdown-menu-end"
+                onClick={dd.menuHide}
+            >
                 <li>
-                    <Link onClick={() => dd.theme("def")} className="dropdown-item" href="/">
+                    <Link
+                        onClick={() => dd.theme("def")}
+                        className="dropdown-item"
+                        href="/"
+                    >
                         Default
                     </Link>
                 </li>
                 <li>
-                    <Link onClick={() => dd.theme("cherry")} className="dropdown-item" href="/">
+                    <Link
+                        onClick={() => dd.theme("cherry")}
+                        className="dropdown-item"
+                        href="/"
+                    >
                         Cherry Blue
                     </Link>
                 </li>
                 <li>
-                    <Link onClick={() => dd.theme("pine")} className="dropdown-item" href="/">
+                    <Link
+                        onClick={() => dd.theme("pine")}
+                        className="dropdown-item"
+                        href="/"
+                    >
                         Pineapple Mint
                     </Link>
                 </li>

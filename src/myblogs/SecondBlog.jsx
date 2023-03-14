@@ -1,10 +1,10 @@
 import React from "react";
 import '../styles/contents.scss';
 
-function SecondBlog(secondBlog) {
+function SecondBlog() {
     return (
         <div>
-            <main className={`main-content-${secondBlog.themeColor}`}>
+            <main className={`main-content`}>
                 <div className="content-wrapper">
                     <h1>This is second Blog</h1>
                     <h2>Welcome to second blog</h2>

@@ -2,11 +2,12 @@
 
 @mixin themeBtn {
     color: $lightPurple;
-    background-image: linear-gradient(to right, #5a0a0a, #17176e);
+    background-image: linear-gradient(45deg,#800202, #0357038c, #1212a7);
     border: none;
 
     &:hover {
-        background-image: linear-gradient(to right, #17176e, #5a0a0a);
+        // background-image: linear-gradient(to right, #17176e, #5a0a0a);
+    background-image: linear-gradient(145deg,#860808, #0053008c, #000075);
     }
 }
 
@@ -46,7 +47,7 @@
 
             > a {
                 color: $lightPurple;
-                padding: 28px 1rem;
+                padding: 27px 1rem;
                 cursor: pointer;
 
                 &:hover {
@@ -161,7 +162,7 @@
                 display: none;
             }
         }
-        
+
         #mode-icon-phone {
             display: none;
         }

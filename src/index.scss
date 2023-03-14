@@ -13,23 +13,38 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $darkBlue;
+    background-image: repeating-linear-gradient(
+        45deg,
+        $darkBlue,
+        $lightBlue 10px
+    );
+    border-radius: $childRad;
 }
 
 #alert-box-container {
-    display: none;
+    display: flex;
     justify-content: center;
 }
 
 .alert-box {
     top: 90px;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
+    z-index: 9988;
     line-height: 0px;
     position: fixed;
     border: none;
     background-image: url(../src/assets/success-icon-ani.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 40px;
+}
+
+.error-alert-box {
+    top: 90px;
+    z-index: 9988;
+    line-height: 0px;
+    position: fixed;
+    background-image: url(../src/assets/error-icon-ani.gif);
+    border: none;
     background-repeat: no-repeat;
     background-size: contain;
     padding-left: 40px;
@@ -51,7 +66,147 @@ body {
     transition: all 1s ease;
 }
 
-.read-page{
-    background: red;
+.dark-mode {
+    background: $darkBlue;
+
+    .page2,
+    .page3 {
+        background-color: #1f1f40;
+        color: lightcyan;
+    }
+
+    .about-page {
+        background-color: #010618;
+    }
+
+    .social-media {
+        div {
+            background-color: #010618;
+        }
+    }
+
+    .error-content,
+    .canva-light {
+        background: #121a38 !important;
+        color: $white;
+        box-shadow: 0px 0px 200px #2b2aa8;
+    }
+
+    .error-page-wrapper {
+        .error-content {
+            a {
+                h2 {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    div {
+        & > .main-content {
+            background: $bgContentDark;
+            color: $white;
+            box-shadow: 0px 0px 200px #2b2aa8;
+        }
+    }
 }
 
+.cherry-blue {
+    background: #091421;
+
+    .navbar {
+        position: fixed;
+
+        .header {
+            border: none;
+            background: none;
+        }
+    }
+
+    .footer,
+    .header-scrolled {
+        background-image: linear-gradient(145deg, #5d0112, #284d5d) !important;
+    }
+
+    .home {
+        height: 100vh;
+        main {
+            align-items: flex-start;
+            background-image: linear-gradient(
+                    to right,
+                    rgb(26, 2, 10, 0.8),
+                    rgb(2, 15, 44, 0.8)
+                ),
+                url("./assets/cherry-blue-wp2.jpg");
+            transition: all 1s ease;
+        }
+    }
+
+    .read-page {
+        background-image: linear-gradient(145deg, #284d5d, #5d0112);
+        color: $lightBlue;
+
+        img {
+            background-image: linear-gradient(
+                to right,
+                $lightPurple,
+                $lightBlue
+            );
+        }
+    }
+
+    .info-page {
+        background-color: #284d5d;
+        background-image: linear-gradient(145deg, #284d5d, #071b31);
+
+        &:hover {
+            background-color: #284d5d;
+        }
+    }
+
+    .social-media {
+        div {
+            article {
+                a {
+                    &:hover {
+                        background-color: #284d5d;
+                    }
+                }
+            }
+        }
+    }
+
+    .error-content,
+    .canva-light {
+        background: #121a38 !important;
+        color: $white;
+        box-shadow: 0px 0px 200px #2b2aa8;
+    }
+
+    .error-page-wrapper {
+        margin-top: 80px;
+        .error-content {
+            background: #0c1d31 !important;
+            box-shadow: 0px 0px 200px #297a9c;
+            color: $white;
+            a {
+                h2 {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    div {
+        & > .main-content {
+            background: #0c1d31;
+            box-shadow: 0px 0px 200px #297a9c;
+            color: $white;
+            margin: 100px auto;
+        }
+    }
+}
+
+.pineapple-mint {
+    background: #caf58b;
+}

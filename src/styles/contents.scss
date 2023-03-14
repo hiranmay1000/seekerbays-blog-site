@@ -51,17 +51,14 @@ $tags-border-radius: 15px;
     }
 }
 
-.canva-dark {
-    box-shadow: 0px 0px 50px blue;
-}
 
 div {
-    & > .main-content-light,
-    & > .main-content-dark {
+    & > .main-content {
         width: $main-content-width;
         margin: $main-content-margin;
         border-radius: $childRad;
         padding: $main-content-padding;
+        background: $lightBlue;
         transition: all 1s ease;
 
         & > .blog-tags {
@@ -73,23 +70,11 @@ div {
             }
         }
     }
-
-    & > .main-content-light {
-        background-color: $lightBlue;
-        color: #111;
-    }
-
-    & > .main-content-dark {
-        background-color: $bgRead;
-        color: #fff;
-        box-shadow: 0px 0px 200px $ledBacklit;
-    }
 }
 
 @media screen and (max-width: 750px) {
     div {
-        .main-content-light,
-        .main-content-dark {
+        .main-content {
             width: 90%;
             margin: $main-content-margin;
             border-radius: $childRadMob;
