@@ -35,7 +35,7 @@ function Home(home) {
                             opacity: 0,
                         }}
                         whileInView={{
-                            x: "-5%",
+                            x: "-0%",
                             opacity: 1,
                         }}
                     >

@@ -4,7 +4,7 @@ export default function Resume(resume) {
     return (
         <div>
             <main>
-                <div className={`canva-${resume.themeColor}`}
+                <div className={`canva`}
                 >
                     <iframe className="iframe"
                         loading="lazy"

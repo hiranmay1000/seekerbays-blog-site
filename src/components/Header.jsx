@@ -7,7 +7,7 @@ function Header(header) {
     const [showMenu, setShowMenu] = useState(false);
     const [barIcon, setBarToCross] = useState(<AiOutlineMenu />);
     const [headerOnScroll, setHeaderOnScroll] = useState("");
-    const [activePage, setActivePage] = useState("/");
+    const [currActivePage, setCurrActivePage] = useState("/");
     const [errorPopupClass, setErrorPopupClass] = useState("");
 
     const toggleMenuMobile = () => {
@@ -41,18 +41,10 @@ function Header(header) {
         });
     });
 
-    useState(() => {
-        if (header.errorPopup === true) {
-            setErrorPopupClass("");
-        } else {
-            setErrorPopupClass("error-");
-        }
-    });
-
     const location = useLocation();
     useEffect(() => {
         const path = location.pathname.substring(1);
-        setActivePage(path || "/");
+        setCurrActivePage(path || "/");
     }, [location.pathname]);
 
     return (
@@ -70,7 +62,7 @@ function Header(header) {
                 <NavContent
                     toggleMode={header.toggleMode}
                     toggleIcon={header.icon}
-                    activePage={activePage}
+                    currActivePage={currActivePage}
                     menuHide={menuHide}
                     theme={header.handleThemeChange}
                 />
@@ -80,7 +72,7 @@ function Header(header) {
                     <NavContent
                         toggleMode={header.toggleMode}
                         toggleIcon={header.icon}
-                        activePage={activePage}
+                        currActivePage={currActivePage}
                         theme={header.handleThemeChange}
                     />
                     <button onClick={toggleMenuMobile}>{barIcon}</button>
@@ -109,14 +101,14 @@ const NavContent = (nc) => {
 
             <main>
                 <HashLink
-                    className={nc.activePage === "/" ? "active" : ""}
+                    className={nc.currActivePage === "/" ? "active" : ""}
                     onClick={nc.menuHide}
                     to="/#home"
                 >
                     Home
                 </HashLink>
                 <HashLink
-                    className={nc.activePage === "#about" ? "active" : ""}
+                    className={nc.currActivePage === "#about" ? "active" : ""}
                     onClick={nc.menuHide}
                     to="/#about"
                 >
@@ -126,14 +118,14 @@ const NavContent = (nc) => {
                     contact
                 </HashLink>
                 <Link
-                    className={nc.activePage === "resume" ? "active" : ""}
+                    className={nc.currActivePage === "resume" ? "active" : ""}
                     onClick={nc.menuHide}
                     to="/resume"
                 >
                     Resume
                 </Link>
                 <Link
-                    className={nc.activePage === "contents" ? "active" : ""}
+                    className={nc.currActivePage === "contents" ? "active" : ""}
                     onClick={nc.menuHide}
                     to="/contents"
                 >

@@ -26,8 +26,7 @@ $tags-border-radius: 15px;
     }
 }
 
-.canva-light,
-.canva-dark {
+.canva {
     position: relative;
     width: 40%;
     margin: auto;
@@ -89,8 +88,7 @@ div {
         }
     }
 
-    .canva-light,
-    .canva-dark {
+    .canva {
         width: 90%;
         height: 600px;
     }

@@ -22,7 +22,7 @@
 }
 
 #alert-box-container {
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
@@ -86,7 +86,7 @@ body {
     }
 
     .error-content,
-    .canva-light {
+    .canva {
         background: #121a38 !important;
         color: $white;
         box-shadow: 0px 0px 200px #2b2aa8;
@@ -112,7 +112,7 @@ body {
 }
 
 .cherry-blue {
-    background: #091421;
+    background: #04162c;
 
     .navbar {
         position: fixed;
@@ -125,18 +125,15 @@ body {
 
     .footer,
     .header-scrolled {
-        background-image: linear-gradient(145deg, #5d0112, #284d5d) !important;
+        background-image: linear-gradient(145deg, #5d0112, #016a97) !important;
     }
 
     .home {
         height: 100vh;
+        font-style: italic;
         main {
             align-items: flex-start;
-            background-image: linear-gradient(
-                    to right,
-                    rgb(26, 2, 10, 0.8),
-                    rgb(2, 15, 44, 0.8)
-                ),
+            background-image: linear-gradient(to right, #071b31d7, #1a020ada),
                 url("./assets/cherry-blue-wp2.jpg");
             transition: all 1s ease;
         }
@@ -153,11 +150,23 @@ body {
                 $lightBlue
             );
         }
+        // animation: rotateBgColor 5s infinite alternate;
+        background: linear-gradient(
+            145deg,
+            #071b31,
+            #284d5d,
+            #5d0112,
+            #016a97,
+            #1a020ada
+        );
+        background-size: 500% 500%;
+        animation: rotateBgColor 10s ease infinite;
     }
 
     .info-page {
         background-color: #284d5d;
-        background-image: linear-gradient(145deg, #284d5d, #071b31);
+        background-image: linear-gradient(145deg, #016a97, #071b31);
+        font-style: italic;
 
         &:hover {
             background-color: #284d5d;
@@ -176,18 +185,18 @@ body {
         }
     }
 
-    .error-content,
-    .canva-light {
+    .canva,
+    .error-content {
         background: #121a38 !important;
         color: $white;
-        box-shadow: 0px 0px 200px #2b2aa8;
+        box-shadow: 0px 0px 200px #016a97;
     }
 
     .error-page-wrapper {
         margin-top: 80px;
         .error-content {
             background: #0c1d31 !important;
-            box-shadow: 0px 0px 200px #297a9c;
+            box-shadow: 0px 0px 200px #016a97;
             color: $white;
             a {
                 h2 {
@@ -200,10 +209,22 @@ body {
     div {
         & > .main-content {
             background: #0c1d31;
-            box-shadow: 0px 0px 200px #297a9c;
+            box-shadow: 0px 0px 200px #016a97;
             color: $white;
             margin: 100px auto;
         }
+    }
+}
+
+@keyframes rotateBgColor {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
 

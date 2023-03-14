@@ -26,7 +26,6 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [displayModesFeedback, setDisplayModesFeedback] = useState("");
   const [currTheme, setCurrTheme] = useState("");
-  const [errorPopup, setErrorPopup] = useState(false);
 
   const feedbackTimeout = () => {
     setTimeout(() => {
@@ -47,15 +46,12 @@ function App() {
     setCurrTheme(themeName)
   }
 
-
   const toggleMode = () => {
     if (currTheme === "dark-mode" || currTheme === "") {
-      setErrorPopup(false);
       setDarkMode(!darkMode);
       setDisplayModesFeedback(!darkMode ? "Dark mode" : "Light mode");
       feedbackTimeout();
     } else {
-      setErrorPopup(true);
       setDisplayModesFeedback("Cannot change modes in custom themes");
       feedbackTimeout();
     }
@@ -82,11 +78,11 @@ function App() {
         break;
       case 'cherry':
         setCustomThemes("cherry-blue");
-        setDisplayModesFeedback("Cherry Blue theme applied") // applied
+        setDisplayModesFeedback("Cherry Blue theme applied")
         break;
       case 'pine':
         setCustomThemes("pineapple-mint");
-        setDisplayModesFeedback("Pineapple Mint theme applied") // applied
+        setDisplayModesFeedback("Pineapple Mint theme applied")
         break;
 
       default:
@@ -96,7 +92,7 @@ function App() {
 
   return (
     <Router>
-      <Header toggleMode={toggleMode} icon={icon} displayModesFeedback={displayModesFeedback} errorPopup={errorPopup} handleThemeChange={handleThemeChange} />
+      <Header toggleMode={toggleMode} icon={icon} displayModesFeedback={displayModesFeedback} currTheme={currTheme} handleThemeChange={handleThemeChange} />
       <Routes>
         <Route path="*" element={<Error404 />} />
         <Route path="/" element={<Home />} />
