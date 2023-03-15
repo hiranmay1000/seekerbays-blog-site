@@ -8,8 +8,8 @@ function Header(header) {
     const [barIcon, setBarToCross] = useState(<AiOutlineMenu />);
     const [headerOnScroll, setHeaderOnScroll] = useState("");
     const [currActivePage, setCurrActivePage] = useState("/");
-    const [errorPopupClass, setErrorPopupClass] = useState("");
-
+    // const [errorPopupClass, setErrorPopupClass] = useState("");
+    
     const toggleMenuMobile = () => {
         if (!showMenu) {
             document.getElementById("nav-menu-slide").style.transform =
@@ -51,7 +51,7 @@ function Header(header) {
         <>
             <div id={`alert-box-container`}>
                 <div
-                    className={`alert alert-light ${errorPopupClass}alert-box`}
+                    className={`alert alert-light alert-box`}
                     role="alert"
                 >
                     {header.displayModesFeedback}
@@ -180,6 +180,15 @@ const DropdownMenu = (dd) => {
                         href="/"
                     >
                         Pineapple Mint
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        onClick={() => dd.theme("sandlewood")}
+                        className="dropdown-item"
+                        href="/"
+                    >
+                        SandleWood Yellow
                     </Link>
                 </li>
             </ul>

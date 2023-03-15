@@ -84,6 +84,10 @@ function App() {
         setCustomThemes("pineapple-mint");
         setDisplayModesFeedback("Pineapple Mint theme applied")
         break;
+      case 'sandlewood':
+        setCustomThemes("sandlewood-yellow");
+        setDisplayModesFeedback("Sandlewood yellow theme applied")
+        break;
 
       default:
         break;

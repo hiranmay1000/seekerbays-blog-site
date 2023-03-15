@@ -216,6 +216,75 @@ body {
     }
 }
 
+.pineapple-mint {
+    background: #8A7D31;
+    background: #B78A30;
+
+    .navbar {
+        position: fixed;
+
+        .header {
+            border: none;
+            background: none;
+        }
+    }
+
+    .footer,
+    .header-scrolled {
+        background-image: linear-gradient(145deg, #FCDF2D, #BBD6B8) !important;
+        color: #000000;
+        a{
+            color: grey !important;
+            &:hover{
+                color: #000000 !important;
+            }
+        }
+        &:hover{
+            color: #000000 !important;
+        }
+    }
+
+    .home {
+        height: 100vh;
+        font-style: italic;
+        main {
+            align-items: flex-start;
+            background-image: linear-gradient(to right, #cbf58bda, #5d0112e8),
+                url("./assets/cherry-blue-wp.jpg");
+            transition: all 1s ease;
+        }
+    }
+}
+
+.sandlewood-yellow {
+    background: #4d4d23;
+
+    .navbar {
+        position: fixed;
+
+        .header {
+            border: none;
+            background: none;
+        }
+    }
+
+    .footer,
+    .header-scrolled {
+        background-image: linear-gradient(145deg, #5d0112, #016a97) !important;
+    }
+
+    .home {
+        height: 100vh;
+        font-style: italic;
+        main {
+            align-items: flex-start;
+            background-image: linear-gradient(to right, #cbf58bda, #5d0112e8),
+                url("./assets/cherry-blue-wp.jpg");
+            transition: all 1s ease;
+        }
+    }
+}
+
 @keyframes rotateBgColor {
     0% {
         background-position: 0% 50%;
@@ -226,8 +295,4 @@ body {
     100% {
         background-position: 0% 50%;
     }
-}
-
-.pineapple-mint {
-    background: #caf58b;
 }
