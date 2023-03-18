@@ -9,16 +9,21 @@ $tags-margin: 5px;
 $tags-padding: 6px 12px;
 $tags-border-radius: 15px;
 
-@mixin blog-tags {
+@mixin tagLinks {
     width: $blog-tags-width;
     margin: $blog-tags-margin;
 
     .tags {
         margin: $tags-margin;
-        padding: $tags-padding;
+        padding: 0 10px;
+        height: 30px;
         border-radius: $tags-border-radius;
         color: $lightBlue;
-        background-color: #9696c9;
+        background-color: $bgTags;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        text-align: center;
 
         &:hover {
             background-color: #8282ac;
@@ -64,7 +69,7 @@ div {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-                @include blog-tags;
+                @include tagLinks;
             }
         }
     }
@@ -89,11 +94,18 @@ div {
         top: 88%;
         left: 50%;
         transform: translate(-50%, -50%);
+        background-color: #000;
+
+        span {
+            display: flex;
+            color: $white;
+        }
 
         .dummy-space-left {
             width: 70%;
         }
         .floating-cards {
+            padding-left: 10px;
             width: 30%;
             cursor: pointer;
             display: flex;
@@ -134,6 +146,69 @@ div {
         width: 70%;
         margin-right: 5px;
 
+        .content-catogories-top {
+            width: 100%;
+            height: 50px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            position: relative;
+
+            .blog-tags {
+                .tag-container {
+                    display: flex;
+                    @include tagLinks;
+                }
+            }
+            .content-categories-top-container {
+                position: relative;
+                left: 0;
+                transition: all 1s ease;
+            }
+
+            .content-categories-top-container.moved-left {
+                position: relative;
+                left: -50px;
+            }
+        }
+
+        .prev-next-icon,
+        .prev-next-icon-left {
+            width: 100px;
+            background-image: linear-gradient(
+                to right,
+                transparent,
+                $bgTags,
+                $bgTags
+            );
+            position: absolute;
+            right: 0;
+            text-align: right;
+            height: 30px;
+            color: $lightPurple;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 10px;
+
+            span {
+                padding: 0 1px;
+            }
+            user-select: none;
+
+            #arrow-left:hover,
+            #arrow-right:hover {
+                color: darkslateblue;
+            }
+        }
+
+        .prev-next-icon-left {
+            background-image: linear-gradient(to right, $bgTags, transparent);
+            left: 0;
+            // z-index: 1;
+        }
+
         .item-cards {
             display: flex;
             margin-bottom: 10px;
@@ -169,9 +244,49 @@ div {
     .slide-cards {
         width: 30%;
         margin-left: 5px;
-        background: $lightBlue;
         top: 60px;
         position: sticky;
+
+        .sld-cards-cont {
+            background-color: $lightBlue;
+            border-radius: 0  0 25px 25px;
+            padding-bottom: 25px;
+
+            .sld-cards {
+                height: 300px;
+                background-color: #bebef3;
+                margin: 10px 0;
+                overflow: hidden;
+                
+                .sld-img {
+                    width: 100%;
+                    height: 150px;
+                    background-image: url("../assets/apple-desktop.jpg");
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    transition: all 1s ease;
+                }
+
+                p{
+                    padding: 15px;
+                }
+                
+                .sld-title{
+                    p{
+                        padding: 15px;
+                    }
+                }
+            }
+
+            .sld-total-img{
+                height: 500px;
+                background-image: url("../assets/desktop-normal.jpg");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
     }
 }
 
