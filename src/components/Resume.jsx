@@ -11,7 +11,6 @@ export default function Resume(resume) {
                         src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFeHHqRUCY&#x2F;view?embed"
                         allowfullscreen="allowfullscreen"
                         allow="fullscreen"
-                        title="Hiranmay Resume"
                     ></iframe>
                 </div>
             </main>
