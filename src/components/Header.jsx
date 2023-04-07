@@ -2,6 +2,8 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { AiFillCloseSquare, AiOutlineMenu } from "react-icons/ai";
 import { Link, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css"; // optional
 
 function Header(header) {
     const [showMenu, setShowMenu] = useState(false);
@@ -9,7 +11,7 @@ function Header(header) {
     const [headerOnScroll, setHeaderOnScroll] = useState("");
     const [currActivePage, setCurrActivePage] = useState("/");
     // const [errorPopupClass, setErrorPopupClass] = useState("");
-    
+
     const toggleMenuMobile = () => {
         if (!showMenu) {
             document.getElementById("nav-menu-slide").style.transform =
@@ -50,10 +52,7 @@ function Header(header) {
     return (
         <>
             <div id={`alert-box-container`}>
-                <div
-                    className={`alert alert-light alert-box`}
-                    role="alert"
-                >
+                <div className={`alert alert-light alert-box`} role="alert">
                     {header.displayModesFeedback}
                 </div>
             </div>
@@ -65,6 +64,7 @@ function Header(header) {
                     currActivePage={currActivePage}
                     menuHide={menuHide}
                     theme={header.handleThemeChange}
+                    tooltip={header.tooltip}
                 />
             </div>
             <div className="navbar">
@@ -74,6 +74,8 @@ function Header(header) {
                         toggleIcon={header.icon}
                         currActivePage={currActivePage}
                         theme={header.handleThemeChange}
+                        tooltip={header.tooltip}
+                        displayModesFeedback = {header.displayModesFeedback}
                     />
                     <button onClick={toggleMenuMobile}>{barIcon}</button>
                 </nav>
@@ -132,9 +134,11 @@ const NavContent = (nc) => {
                     Contents
                 </Link>
                 <DropdownMenu theme={nc.theme} menuHide={nc.menuHide} />
-                <Link id="mode-icon" onClick={nc.toggleMode}>
-                    {nc.toggleIcon}
-                </Link>
+                <Tippy content={`Enable ${nc.tooltip}`}>
+                        <Link id="mode-icon" onClick={nc.toggleMode}>
+                        {nc.toggleIcon}
+                    </Link>
+                </Tippy>
             </main>
         </>
     );

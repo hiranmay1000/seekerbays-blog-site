@@ -23,8 +23,9 @@ import './styles/colors.scss';
 function App() {
 
   const [icon, setIcon] = useState(<BsSunFill />);
+  const [tooltip, setTooltip] = useState("Dark Mode");
   const [darkMode, setDarkMode] = useState(false);
-  const [displayModesFeedback, setDisplayModesFeedback] = useState("");
+  const [displayModesFeedback, setDisplayModesFeedback] = useState("Light Mode");
   const [currTheme, setCurrTheme] = useState("");
 
   const feedbackTimeout = () => {
@@ -49,7 +50,8 @@ function App() {
   const toggleMode = () => {
     if (currTheme === "dark-mode" || currTheme === "") {
       setDarkMode(!darkMode);
-      setDisplayModesFeedback(!darkMode ? "Dark mode" : "Light mode");
+      setDisplayModesFeedback(!darkMode ? "Dark mode"  : "Light mode");
+      setTooltip(!darkMode ? "Light Mode": "Dark Mode");
       feedbackTimeout();
     } else {
       setDisplayModesFeedback("Cannot change modes in custom themes");
@@ -96,7 +98,7 @@ function App() {
 
   return (
     <Router>
-      <Header toggleMode={toggleMode} icon={icon} displayModesFeedback={displayModesFeedback} currTheme={currTheme} handleThemeChange={handleThemeChange} />
+      <Header tooltip={tooltip} toggleMode={toggleMode} icon={icon} displayModesFeedback={displayModesFeedback} currTheme={currTheme} handleThemeChange={handleThemeChange} />
       <Routes>
         <Route path="*" element={<Error404 />} />
         <Route path="/" element={<Home />} />
