@@ -8,7 +8,7 @@ export default function Resume(resume) {
                     <iframe
                         className="iframe"
                         loading="lazy"
-                        src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFeHHqRUCY&#x2F;view?embed"
+                        src="https://www.canva.com/design/DAF8ZLHjXIA/gmkv-Nd2X8Q5NW7BKEbmCQ/view?utm_content=DAF8ZLHjXIA&utm_campaign=designshare&utm_medium=link&utm_source=editor"
                         allowfullscreen="allowfullscreen"
                         allow="fullscreen"
                     ></iframe>
